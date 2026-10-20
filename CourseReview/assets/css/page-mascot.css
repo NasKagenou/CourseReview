@@ -1,0 +1,43 @@
+/* ปุ่มมาสคอตใน navbar: กำหนดขนาด พื้นหลัง และรูปแบบการโต้ตอบ */
+.page-mascot {
+  --mascot-size: 48px;
+  display: block;
+  flex: 0 0 var(--mascot-size);
+  width: var(--mascot-size);
+  height: var(--mascot-size);
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.24);
+  cursor: pointer;
+  filter: drop-shadow(0 4px 8px rgba(51, 65, 85, 0.18));
+  transition: transform 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ยกปุ่มขึ้นเล็กน้อยเมื่อชี้เมาส์ */
+.page-mascot:hover {
+  transform: translateY(-2px);
+}
+
+/* แสดงกรอบชัดเจนเมื่อผู้ใช้เลื่อนโฟกัสมาที่ปุ่มด้วยคีย์บอร์ด */
+.page-mascot:focus-visible {
+  outline: 3px solid #6366f1;
+  outline-offset: 2px;
+}
+
+/* แสดงภาพ sprite ที่ JavaScript เลือกตำแหน่งด้วย background-position */
+.page-mascot__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 300% 300%;
+  background-position: 50% 50%;
+  transition: transform 0.2s ease;
+}
+
+/* ขยายภาพเล็กน้อยระหว่างมาสคอตกำลังตอบสนองต่อการคลิก */
+.page-mascot.is-reacting .page-mascot__image {
+  transform: scale(1.16);
+}
